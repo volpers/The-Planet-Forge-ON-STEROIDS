@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ThePlanetForgeONSTEROIDS.h"
 #include "DirectXFunctions.h"
+#include "EngineConfiguration.h"
 
 #define MAX_LOADSTRING 100
 
@@ -11,14 +12,15 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-DirectXFunctions* directXFunctions;
+
+EngineConfiguration configuration;
 
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
-
+HWND hWnd;
 
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -28,9 +30,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+  
+	configuration.WINDOW_WIDTH = 800;
+	configuration.WINDOW_HEIGHT = 600;
 
-    // TODO: Place code here.
-	directXFunctions = new DirectXFunctions(hInstance);
 
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -56,6 +59,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }
+
+	// TODO: Place code here.
+
+	
+
+	DirectXFunctions directXFunctions(hWnd, hInstance, configuration);
 
     return (int) msg.wParam;
 }
@@ -84,7 +93,6 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_THEPLANETFORGEONSTEROIDS);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
-
     return RegisterClassExW(&wcex);
 }
 
@@ -102,9 +110,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
-
+	 hWnd = CreateWindowEx(    //Create our Extended Window
+	   NULL,    //Extended style
+	   szWindowClass,    //Name of our windows class
+	   szTitle,    //Name in the title bar of our window
+	   WS_OVERLAPPEDWINDOW,    //style of our window
+	   CW_USEDEFAULT, CW_USEDEFAULT,    //Top left corner of window
+	   configuration.WINDOW_WIDTH,    //Width of our window
+	   configuration.WINDOW_HEIGHT,    //Height of our window
+	   nullptr,    //Handle to parent window
+	   nullptr,    //Handle to a Menu
+	   hInstance,    //Specifies instance of current program
+	   nullptr    //used for an MDI client window
+   );
+   
    if (!hWnd)
    {
       return FALSE;

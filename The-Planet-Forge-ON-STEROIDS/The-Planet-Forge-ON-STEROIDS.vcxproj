@@ -148,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectXFunctions.h" />
+    <ClInclude Include="ColorData.h" />
+    <ClInclude Include="EngineConfiguration.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

@@ -16,6 +16,12 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{c1975b8d-0061-43f8-9367-67ef2baf3663}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\Headers">
+      <UniqueIdentifier>{aaa912cd-e071-4663-b4ed-16fbeecaac5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Sources">
+      <UniqueIdentifier>{b683c308-9027-4621-a772-169cad83566d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -34,7 +40,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DirectXFunctions.h">
-      <Filter>Graphics</Filter>
+      <Filter>Graphics\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorData.h">
+      <Filter>Graphics\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineConfiguration.h">
+      <Filter>Graphics\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +57,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DirectXFunctions.cpp">
-      <Filter>Graphics</Filter>
+      <Filter>Graphics\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
