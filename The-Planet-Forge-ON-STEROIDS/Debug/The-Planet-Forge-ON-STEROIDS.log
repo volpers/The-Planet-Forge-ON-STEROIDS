@@ -1,4 +1,8 @@
-﻿  ThePlanetForgeONSTEROIDS.cpp
+﻿  RendererBase.cpp
   Unknown compiler version - please run the configure tests and report the results
+  DirectXFunctions.cpp
+  Unknown compiler version - please run the configure tests and report the results
+d:\gerettet\documents2010\github\the-planet-forge-on-steroids\the-planet-forge-on-steroids\directxfunctions.cpp(33): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   The-Planet-Forge-ON-STEROIDS.vcxproj -> D:\gerettet\Documents2010\GitHub\The-Planet-Forge-ON-STEROIDS\The-Planet-Forge-ON-STEROIDS\Debug\The-Planet-Forge-ON-STEROIDS.exe
   The-Planet-Forge-ON-STEROIDS.vcxproj -> D:\gerettet\Documents2010\GitHub\The-Planet-Forge-ON-STEROIDS\The-Planet-Forge-ON-STEROIDS\Debug\The-Planet-Forge-ON-STEROIDS.pdb (Partial PDB)

@@ -30,5 +30,5 @@ public:
 	void releaseObjects() const;
 	bool initScene();
 	void updateScene();
-	void drawScene();
+	void drawScene() const;
 };

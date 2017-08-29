@@ -42,10 +42,10 @@ void DirectXFunctions::updateScene()
 		_bgColor.colormodb *= -1;	
 }
 
-void DirectXFunctions::drawScene()
+void DirectXFunctions::drawScene() const
 {	
 	//Clear our backbuffer to the updated color
-	float bgColor[4] = {_bgColor.red, _bgColor.green, _bgColor.blue, 1.0f};
+	float bgColor[4] = {36.f/255.f, 161.f/255.f, 232.f/255.f, 1.0f};
 	
 	_d3d11DevCon->ClearRenderTargetView(_renderTargetView, bgColor);
 	

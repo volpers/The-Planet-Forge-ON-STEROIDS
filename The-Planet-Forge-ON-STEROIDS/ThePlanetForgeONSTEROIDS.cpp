@@ -49,6 +49,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_THEPLANETFORGEONSTEROIDS));
 
     MSG msg;
+	DirectXFunctions directXFunctions(hWnd, hInstance, configuration);
+	directXFunctions.initializeDirectX();
 
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))
@@ -58,14 +60,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-    }
 
-	// TODO: Place code here.
+		directXFunctions.updateScene();
+		directXFunctions.drawScene();
+    }	
 
-	
-
-	DirectXFunctions directXFunctions(hWnd, hInstance, configuration);
-
+	directXFunctions.releaseObjects();
     return (int) msg.wParam;
 }
 
